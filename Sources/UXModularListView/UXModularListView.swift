@@ -13,7 +13,9 @@ public class UXModularListView<T>: UIView, UITableViewDataSource, UITableViewDel
 
     // MARK: - Initialization
 
-    public init() {
+    public init(moduleProvider: UXModularListViewModuleProvider<T>) {
+        self.moduleProvider = moduleProvider
+
         super.init(frame: .null)
 
         self.tableView.dataSource = self
@@ -29,6 +31,8 @@ public class UXModularListView<T>: UIView, UITableViewDataSource, UITableViewDel
 
 
     // MARK: - Configuration
+
+    private let moduleProvider: UXModularListViewModuleProvider<T>
 
     public var viewModels: [T] = [] {
         didSet { self.tableView.reloadData() }
@@ -57,6 +61,13 @@ public class UXModularListView<T>: UIView, UITableViewDataSource, UITableViewDel
 
     // MARK: - Table View Management
 
+    private func presentableValue(at indexPath: IndexPath) -> UXModularListViewPresentableValue {
+        let viewModel = self.viewModels[indexPath.row]
+        let presentableValue = self.moduleProvider.presentableValue(for: viewModel)
+
+        return presentableValue
+    }
+
     public func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -66,8 +77,18 @@ public class UXModularListView<T>: UIView, UITableViewDataSource, UITableViewDel
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-        cell.textLabel!.text = "Row \(indexPath.row + 1)"
+        let presentableValue = self.presentableValue(at: indexPath)
+        let cell: UXModularListViewCell
+
+        if let reuseIdentifier = presentableValue.reuseIdentifier {
+            tableView.register(UXModularListViewCell.self, forCellReuseIdentifier: reuseIdentifier)
+
+            cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! UXModularListViewCell
+        } else {
+            cell = UXModularListViewCell(style: .default, reuseIdentifier: nil)
+        }
+
+        cell.presentedView = presentableValue.materialize(reusableView: cell.presentedView)
 
         return cell
     }

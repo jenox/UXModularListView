@@ -12,6 +12,10 @@
 		CB29082D22D9DBC100B5FE9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB29082C22D9DBC100B5FE9F /* Assets.xcassets */; };
 		CB29083022D9DBC100B5FE9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB29082E22D9DBC100B5FE9F /* LaunchScreen.storyboard */; };
 		CB29083E22D9DD3F00B5FE9F /* UXModularListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB29083D22D9DD3F00B5FE9F /* UXModularListView.swift */; };
+		CBBBC7F222D9E82800A3D30E /* UXModularListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBBC7F122D9E82800A3D30E /* UXModularListViewCell.swift */; };
+		CBBBC7F422D9EB3400A3D30E /* UXModularListViewModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBBC7F322D9EB3400A3D30E /* UXModularListViewModule.swift */; };
+		CBBBC7F622D9EB6B00A3D30E /* UXModularListViewPresentableValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBBC7F522D9EB6B00A3D30E /* UXModularListViewPresentableValue.swift */; };
+		CBF0E74722D9FE3900F1A1C3 /* UXModularListViewModuleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF0E74622D9FE3900F1A1C3 /* UXModularListViewModuleProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		CB29082F22D9DBC100B5FE9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CB29083122D9DBC100B5FE9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB29083D22D9DD3F00B5FE9F /* UXModularListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UXModularListView.swift; sourceTree = "<group>"; };
+		CBBBC7F122D9E82800A3D30E /* UXModularListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UXModularListViewCell.swift; sourceTree = "<group>"; };
+		CBBBC7F322D9EB3400A3D30E /* UXModularListViewModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UXModularListViewModule.swift; sourceTree = "<group>"; };
+		CBBBC7F522D9EB6B00A3D30E /* UXModularListViewPresentableValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UXModularListViewPresentableValue.swift; sourceTree = "<group>"; };
+		CBF0E74622D9FE3900F1A1C3 /* UXModularListViewModuleProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UXModularListViewModuleProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +84,10 @@
 			isa = PBXGroup;
 			children = (
 				CB29083D22D9DD3F00B5FE9F /* UXModularListView.swift */,
+				CBBBC7F322D9EB3400A3D30E /* UXModularListViewModule.swift */,
+				CBF0E74622D9FE3900F1A1C3 /* UXModularListViewModuleProvider.swift */,
+				CBBBC7F522D9EB6B00A3D30E /* UXModularListViewPresentableValue.swift */,
+				CBBBC7F122D9E82800A3D30E /* UXModularListViewCell.swift */,
 			);
 			path = UXModularListView;
 			sourceTree = "<group>";
@@ -153,6 +165,10 @@
 				CB29082422D9DBC000B5FE9F /* AppDelegate.swift in Sources */,
 				CB29082822D9DBC000B5FE9F /* ViewController.swift in Sources */,
 				CB29083E22D9DD3F00B5FE9F /* UXModularListView.swift in Sources */,
+				CBBBC7F422D9EB3400A3D30E /* UXModularListViewModule.swift in Sources */,
+				CBF0E74722D9FE3900F1A1C3 /* UXModularListViewModuleProvider.swift in Sources */,
+				CBBBC7F622D9EB6B00A3D30E /* UXModularListViewPresentableValue.swift in Sources */,
+				CBBBC7F222D9E82800A3D30E /* UXModularListViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
