@@ -14,4 +14,6 @@ public protocol UXModularListViewModule: UIView {
 
     init(viewModel: ViewModel)
     var viewModel: ViewModel { get set }
+
+    static func estimatedHeight(for viewModel: ViewModel, availableWidth: CGFloat) -> CGFloat
 }

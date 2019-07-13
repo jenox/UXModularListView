@@ -121,7 +121,10 @@ public class UXModularListView<T>: UIView, UITableViewDataSource, UITableViewDel
     }
 
     public func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+        let presentableValue = self.presentableValue(at: indexPath)
+        let availableWidth = tableView.bounds.width
+
+        return presentableValue.estimatedHeight(forAvailableWidth: availableWidth)
     }
 
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -137,6 +140,7 @@ public class UXModularListView<T>: UIView, UITableViewDataSource, UITableViewDel
         tableView.showsVerticalScrollIndicator = true
         tableView.alwaysBounceHorizontal = false
         tableView.alwaysBounceVertical = true
+        tableView.separatorStyle = .none
 
         return tableView
     }

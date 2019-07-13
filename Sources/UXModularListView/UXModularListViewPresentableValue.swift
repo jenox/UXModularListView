@@ -13,21 +13,31 @@ import UIKit
 public struct UXModularListViewPresentableValue {
     public init<Value, Module>(_ value: Value, using module: Module.Type) where Module: UXModularListViewModule, Module.ViewModel == Value {
         self.reuseIdentifier = "\(Module.self)"
-        self._presentInContentView = { contentView in
-            if let contentView = contentView as? Module {
-                contentView.viewModel = value
 
-                return contentView
+        self._materializeWithReusableView = { reusableView in
+            if let reusableView = reusableView as? Module {
+                reusableView.viewModel = value
+
+                return reusableView
             } else {
                 return Module.init(viewModel: value)
             }
         }
+
+        self._estimatedHeightForAvailableWidth = { availableWidth in
+            return Module.estimatedHeight(for: value, availableWidth: availableWidth)
+        }
     }
 
     internal let reuseIdentifier: String?
-    private let _presentInContentView: (UIView?) -> UIView
+    private let _materializeWithReusableView: (UIView?) -> UIView
+    private let _estimatedHeightForAvailableWidth: (CGFloat) -> CGFloat
 
     internal func materialize(reusableView: UIView?) -> UIView {
-        return _presentInContentView(reusableView)
+        return self._materializeWithReusableView(reusableView)
+    }
+
+    internal func estimatedHeight(forAvailableWidth availableWidth: CGFloat) -> CGFloat {
+        return self._estimatedHeightForAvailableWidth(availableWidth)
     }
 }

@@ -15,6 +15,8 @@ internal final class UXModularListViewCell: UITableViewCell {
 
     internal override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+
+        self.selectionStyle = .none
     }
 
     internal required init(coder: NSCoder) {

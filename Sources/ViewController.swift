@@ -69,6 +69,10 @@ class IntModule: UILabel, UXModularListViewModule {
     private func performFormattingUpdate() {
         self.text = "Int \(self.viewModel)"
     }
+
+    static func estimatedHeight(for viewModel: Int, availableWidth: CGFloat) -> CGFloat {
+        return 44
+    }
 }
 
 class StringModule: UILabel, UXModularListViewModule {
@@ -91,5 +95,9 @@ class StringModule: UILabel, UXModularListViewModule {
 
     private func performFormattingUpdate() {
         self.text = "String \(self.viewModel)"
+    }
+
+    static func estimatedHeight(for viewModel: String, availableWidth: CGFloat) -> CGFloat {
+        return 44
     }
 }
