@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,7 @@
 		CB29082822D9DBC000B5FE9F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB29082722D9DBC000B5FE9F /* ViewController.swift */; };
 		CB29082D22D9DBC100B5FE9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB29082C22D9DBC100B5FE9F /* Assets.xcassets */; };
 		CB29083022D9DBC100B5FE9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB29082E22D9DBC100B5FE9F /* LaunchScreen.storyboard */; };
+		CB29083E22D9DD3F00B5FE9F /* UXModularListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB29083D22D9DD3F00B5FE9F /* UXModularListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		CB29082C22D9DBC100B5FE9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB29082F22D9DBC100B5FE9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CB29083122D9DBC100B5FE9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB29083D22D9DD3F00B5FE9F /* UXModularListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UXModularListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			children = (
 				CB29082322D9DBC000B5FE9F /* AppDelegate.swift */,
 				CB29082722D9DBC000B5FE9F /* ViewController.swift */,
+				CB29083822D9DCE600B5FE9F /* UXModularListView */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -67,6 +70,14 @@
 				CB29082E22D9DBC100B5FE9F /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting-Files";
+			sourceTree = "<group>";
+		};
+		CB29083822D9DCE600B5FE9F /* UXModularListView */ = {
+			isa = PBXGroup;
+			children = (
+				CB29083D22D9DD3F00B5FE9F /* UXModularListView.swift */,
+			);
+			path = UXModularListView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -105,7 +116,7 @@
 				};
 			};
 			buildConfigurationList = CB29081B22D9DBC000B5FE9F /* Build configuration list for PBXProject "UXModularListView" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -141,6 +152,7 @@
 			files = (
 				CB29082422D9DBC000B5FE9F /* AppDelegate.swift in Sources */,
 				CB29082822D9DBC000B5FE9F /* ViewController.swift in Sources */,
+				CB29083E22D9DD3F00B5FE9F /* UXModularListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +290,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Supporting-Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -295,6 +308,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Supporting-Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
