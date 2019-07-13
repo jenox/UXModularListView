@@ -12,6 +12,8 @@
 		CB29082D22D9DBC100B5FE9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB29082C22D9DBC100B5FE9F /* Assets.xcassets */; };
 		CB29083022D9DBC100B5FE9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB29082E22D9DBC100B5FE9F /* LaunchScreen.storyboard */; };
 		CB29083E22D9DD3F00B5FE9F /* UXModularListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB29083D22D9DD3F00B5FE9F /* UXModularListView.swift */; };
+		CB72E42A22DA0252007D53C6 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB72E42922DA0252007D53C6 /* Identifiable.swift */; };
+		CB72E42C22DA02FE007D53C6 /* Diffing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB72E42B22DA02FE007D53C6 /* Diffing.swift */; };
 		CBBBC7F222D9E82800A3D30E /* UXModularListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBBC7F122D9E82800A3D30E /* UXModularListViewCell.swift */; };
 		CBBBC7F422D9EB3400A3D30E /* UXModularListViewModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBBC7F322D9EB3400A3D30E /* UXModularListViewModule.swift */; };
 		CBBBC7F622D9EB6B00A3D30E /* UXModularListViewPresentableValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBBC7F522D9EB6B00A3D30E /* UXModularListViewPresentableValue.swift */; };
@@ -26,6 +28,8 @@
 		CB29082F22D9DBC100B5FE9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CB29083122D9DBC100B5FE9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB29083D22D9DD3F00B5FE9F /* UXModularListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UXModularListView.swift; sourceTree = "<group>"; };
+		CB72E42922DA0252007D53C6 /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
+		CB72E42B22DA02FE007D53C6 /* Diffing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diffing.swift; sourceTree = "<group>"; };
 		CBBBC7F122D9E82800A3D30E /* UXModularListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UXModularListViewCell.swift; sourceTree = "<group>"; };
 		CBBBC7F322D9EB3400A3D30E /* UXModularListViewModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UXModularListViewModule.swift; sourceTree = "<group>"; };
 		CBBBC7F522D9EB6B00A3D30E /* UXModularListViewPresentableValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UXModularListViewPresentableValue.swift; sourceTree = "<group>"; };
@@ -88,6 +92,8 @@
 				CBF0E74622D9FE3900F1A1C3 /* UXModularListViewModuleProvider.swift */,
 				CBBBC7F522D9EB6B00A3D30E /* UXModularListViewPresentableValue.swift */,
 				CBBBC7F122D9E82800A3D30E /* UXModularListViewCell.swift */,
+				CB72E42922DA0252007D53C6 /* Identifiable.swift */,
+				CB72E42B22DA02FE007D53C6 /* Diffing.swift */,
 			);
 			path = UXModularListView;
 			sourceTree = "<group>";
@@ -169,6 +175,8 @@
 				CBF0E74722D9FE3900F1A1C3 /* UXModularListViewModuleProvider.swift in Sources */,
 				CBBBC7F622D9EB6B00A3D30E /* UXModularListViewPresentableValue.swift in Sources */,
 				CBBBC7F222D9E82800A3D30E /* UXModularListViewCell.swift in Sources */,
+				CB72E42A22DA0252007D53C6 /* Identifiable.swift in Sources */,
+				CB72E42C22DA02FE007D53C6 /* Diffing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,7 +314,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Supporting-Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -324,7 +332,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Supporting-Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

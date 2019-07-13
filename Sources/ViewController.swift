@@ -15,7 +15,7 @@ class ViewController: UIViewController {
         view.viewModels = [.int(23), .string("42")]
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-            view.viewModels.append(.int(4))
+            view.viewModels = [.string("42\n!"), .int(23)]
         })
 
         self.view = view
@@ -25,6 +25,15 @@ class ViewController: UIViewController {
 enum ViewModel {
     case int(Int)
     case string(String)
+}
+
+extension ViewModel: Identifiable {
+    var id: String {
+        switch self {
+        case .int: return "int"
+        case .string: return "string"
+        }
+    }
 }
 
 extension ViewModel {
@@ -72,6 +81,7 @@ class StringModule: UILabel, UXModularListViewModule {
 
         super.init(frame: .null)
 
+        self.numberOfLines = 0
         self.performFormattingUpdate()
     }
 

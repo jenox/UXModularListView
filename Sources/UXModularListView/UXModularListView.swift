@@ -9,7 +9,7 @@
 import UIKit
 
 
-public class UXModularListView<T>: UIView, UITableViewDataSource, UITableViewDelegate {
+public class UXModularListView<T>: UIView, UITableViewDataSource, UITableViewDelegate where T: Identifiable {
 
     // MARK: - Initialization
 
@@ -35,7 +35,29 @@ public class UXModularListView<T>: UIView, UITableViewDataSource, UITableViewDel
     private let moduleProvider: UXModularListViewModuleProvider<T>
 
     public var viewModels: [T] = [] {
-        didSet { self.tableView.reloadData() }
+        didSet {
+            // Triggering animations when the data source hasn't been queried
+            // yet causes it to query the data source before the animation but
+            // when the new model values are already set, resulting in invalid
+            // updates. This ensures updates are only applied with an animation
+            // when it is safe to do so.
+            if self.tableView.numberOfRows(inSection: 0) == oldValue.count {
+                self.tableView.animate(from: oldValue, to: self.viewModels)
+
+                // The content of items which retained their identity may still
+                // have changed. The call to performBatchUpdates ensures the
+                // cells get a change to resize to fit their new content.
+                self.tableView.performBatchUpdates({
+                    for cell in self.tableView.visibleCells as! [UXModularListViewCell] {
+                        if let indexPath = self.tableView.indexPath(for: cell) {
+                            self.configure(cell, forRowAt: indexPath)
+                        }
+                    }
+                })
+            } else {
+                self.tableView.reloadData()
+            }
+        }
     }
 
 
@@ -77,10 +99,9 @@ public class UXModularListView<T>: UIView, UITableViewDataSource, UITableViewDel
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let presentableValue = self.presentableValue(at: indexPath)
         let cell: UXModularListViewCell
 
-        if let reuseIdentifier = presentableValue.reuseIdentifier {
+        if let reuseIdentifier = self.presentableValue(at: indexPath).reuseIdentifier {
             tableView.register(UXModularListViewCell.self, forCellReuseIdentifier: reuseIdentifier)
 
             cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! UXModularListViewCell
@@ -88,9 +109,15 @@ public class UXModularListView<T>: UIView, UITableViewDataSource, UITableViewDel
             cell = UXModularListViewCell(style: .default, reuseIdentifier: nil)
         }
 
-        cell.presentedView = presentableValue.materialize(reusableView: cell.presentedView)
+        self.configure(cell, forRowAt: indexPath)
 
         return cell
+    }
+
+    private func configure(_ cell: UXModularListViewCell, forRowAt indexPath: IndexPath) {
+        let presentableValue = self.presentableValue(at: indexPath)
+
+        cell.presentedView = presentableValue.materialize(reusableView: cell.presentedView)
     }
 
     public func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
