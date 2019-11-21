@@ -25,7 +25,7 @@
 import UIKit
 
 
-public class UXModularListView<T>: UIView, UITableViewDataSource, UITableViewDelegate where T: Identifiable {
+public class UXModularListView<T>: UIView, UITableViewDataSource, UITableViewDelegate where T: Identifiable & Equatable {
 
     // MARK: - Initialization
 
@@ -64,9 +64,14 @@ public class UXModularListView<T>: UIView, UITableViewDataSource, UITableViewDel
                 // have changed. The call to performBatchUpdates ensures the
                 // cells get a change to resize to fit their new content.
                 self.tableView.performBatchUpdates({
-                    for cell in self.tableView.visibleCells as! [UXModularListViewCell] {
-                        if let indexPath = self.tableView.indexPath(for: cell) {
-                            self.configure(cell, forRowAt: indexPath)
+                    for indexPath in tableView.indexPathsForVisibleRows ?? [] {
+                        if let cell = self.tableView.cellForRow(at: indexPath) as? UXModularListViewCell {
+                            let newValue = self.viewModels[indexPath.row]
+                            let oldValue = oldValue.first(where: { $0.id == newValue.id })
+
+                            if let oldValue = oldValue, newValue != oldValue {
+                                self.configure(cell, forRowAt: indexPath)
+                            }
                         }
                     }
                 })
