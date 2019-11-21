@@ -26,6 +26,9 @@ import UIKit
 
 
 /// Encapsulates a model value and a compatible module type.
+///
+/// Must erase the concrete value and module such that we can store many them in
+/// a homogeneous list.
 public struct UXModularListViewPresentableValue {
     public init<Value, Module>(_ value: Value, using module: Module.Type) where Module: UXModularListViewModule, Module.ViewModel == Value {
         self.reuseIdentifier = "\(Module.self)"
